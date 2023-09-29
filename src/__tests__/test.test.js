@@ -27,45 +27,26 @@ afterEach(() => {
 });
 
 
-
-test('O parágrafo existe', () => {
-  const list = screen.getAllByText("Me altere, por favor!");
-  expect(list.length).toBe(1)
-})
-
 test('O botão existe', () => {
-  const list = screen.getAllByText("Editar parágrafo");
+  const list = screen.getAllByText("Criar parágrafo");
   expect(list.length).toBe(1)
 })
 
-test('Ao clicar no botão o parágrafo se tornar editável', () => {
-  const button = screen.getByText("Editar parágrafo");
-  const paragrafo = screen.getByText("Me altere, por favor!");
+test('Ao clicar no botão um novo parágrafo deve ser adicionado', () => {
+  const button = screen.getByText("Criar parágrafo");
+  let list = document.getElementsByTagName("p");
+  expect(list.length).toBe(0)
   button.click()
-  expect(paragrafo.contentEditable).toBe(true)  
+  expect(list.length).toBe(1)
+  button.click()
+  button.click()
+  button.click()
+  button.click()
+  let total = 0
+  for (const paragafo of list) {
+    total++
+    expect(paragafo.innerHTML).toBe(`Parágrafo ${total}`)
+  }
+  expect(total).toBe(5)
 })
 
-
-test('Ao clicar no botão quando o parágrafo estiver editável deve torná-lo não editável', () => {
-  const button = screen.getByText("Editar parágrafo");
-  const paragrafo = screen.getByText("Me altere, por favor!");
-  button.click()
-  expect(paragrafo.contentEditable).toBe(true)  
-  button.click()
-  expect(paragrafo.contentEditable).toBe(false)  
-})
-
-
-test('Alterando o conteúdo do parágrafo', () => {
-  let button = screen.getByText("Editar parágrafo");
-  const paragrafo = screen.getByText("Me altere, por favor!");
-  button.click()
-  expect(paragrafo.contentEditable).toBe(true)
-  button = screen.getByText('Salvar mudança')
-  paragrafo.innerHTML = "AA"
-  button.click()
-  expect(paragrafo.contentEditable).toBe(false)  
-  expect(paragrafo.innerHTML).toBe("AA")
-  button = screen.getByText("Editar parágrafo")
-  expect(button).not.toBeNull()
-})

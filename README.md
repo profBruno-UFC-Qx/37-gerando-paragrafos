@@ -1,6 +1,6 @@
 ## Descrição
 
-Neste exercício, você vai uma página que possui um parágrafo cujo conteúdo pode ser editado pelo usuário.
+Neste exercício, você vai criar uma página gera parágrafos quando o usuário clica em um botão.
 
 Objetivo desse exercício é praticar a manipulação de elementos HTML usando JavaScript.
 
@@ -12,17 +12,10 @@ Objetivo desse exercício é praticar a manipulação de elementos HTML usando J
 
 ## Instruções:
 
-1. Altere o arquivo **src/index.html** e adicione um parágrafo à página contendo o texto "Me altere, por favor!".
-2. Adicione um botão à página com o texto "Editar parágrafo".
-  - **O texto tem que ser exatamente este. Caso contrário o teste irá falhar.** 
-4. Quando o botão "Editar parágrafo" for clicado:
-  - Faça com que o parágrafo seja editável, permitindo que o aluno insira um novo texto.
-  - O botão "Editar parágrafo" agora deve ser renomeado para "Salvar mudança".
-5. Quando o botão "Salvar mudança" for clicado:
-  - O novo texto inserido deve substituir o conteúdo do parágrafo.
-  - O parágrafo não deve mais ser editável.
-  - O botão deve ser renomeado para "Editar parágrafo" novamente
-6. Teste o exercício abrindo o arquivo HTML em um navegador e interagindo com o botão.
+1. Altere o arquivo **src/index.html** e adicione um botão com o texto "Criar parágrafo"`
+2. Usando JavaScript, quando um usuário clicar no botão "Criar parágrafo" garanta que o seguinte aconteça:
+  - Um novo parágrafo seja adicionado ao container com o seguinte texto: "Paragrafo n", onde é n é o número do parágrafo
+
 
 
 **Certifique-se de validar seu código HTML usando um validador como o [W3C Markup Validation Service](https://validator.w3.org/), para garantir que seu código esteja sem erros e bem formado**.
